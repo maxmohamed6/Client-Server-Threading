@@ -30,7 +30,7 @@ def server():
             while True:
                 conn, address = socketConn.accept() 
 
-                thread = th.thread(target = clientManager, args=(conn,address))
+                thread = th.Thread(target = clientManager, args=(conn,address))
                 thread.start()
 
                 print(f"conexões ativas: {th.active_count() - 1}")
